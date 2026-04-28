@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Weather Sandbox | VishwaNova 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../shared/mobile.css" />
+    <link rel="stylesheet" href="../shared/experience-kit.css" />
+    <link rel="stylesheet" href="../shared/fx-kit.css" />
+    <link rel="stylesheet" href="../shared/engagement-kit.css" />
+    <link rel="stylesheet" href="../shared/soundkit.css" />
+</head>
+<body>
+    <div id="loader">
+        <p style="letter-spacing: 5px;">STABILIZING ATMOSPHERE...</p>
+    </div>
+
+    <audio id="bg-audio" loop></audio>
+
+    <div id="app">
+        <aside class="toolbar">
+            <button class="tool-btn active" data-type="rain" title="Rain">🌧️</button>
+            <button class="tool-btn" data-type="snow" title="Snow">❄️</button>
+            <button class="tool-btn" data-type="lightning" title="Lightning">⚡</button>
+            <button class="tool-btn" data-type="clear" title="Clear">🧹</button>
+        </aside>
+
+        <main id="canvas-container">
+            <canvas id="sandbox-canvas"></canvas>
+            <div style="position: absolute; bottom: 30px; left: 30px; opacity: 0.3; font-size: 0.7rem; letter-spacing: 2px;">
+                CLICK & DRAG TO PAINT WEATHER
+            </div>
+        </main>
+
+        <button id="audio-toggle">🎵</button>
+    </div>
+
+    <footer class="github-badge">
+        <a href="https://github.com/AkshatRock/weboreel-hackathon" target="_blank">⭐ GitHub</a>
+        <span>VishwaNova 2026</span>
+    </footer>
+
+    <script src="../shared/soundkit.js" defer></script>
+    <script src="../shared/experience-kit.js" defer></script>
+    <script src="../shared/engagement-kit.js" defer></script>
+    <script src="../shared/experience-configs-22-50.js" defer></script>
+    <script src="../shared/fx-kit.js" defer></script>
+    <script src="script.js"></script>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const parts = location.pathname.split("/").filter(Boolean);
+        const slug = parts[parts.length - 2] || "";
+        const cfg = window.WeboReelsExperienceConfigs22to50?.[slug] || { title: document.title };
+        window.WeboReelsExperienceKit?.init?.(cfg);
+      });
+    </script>
+</body>
+</html>
